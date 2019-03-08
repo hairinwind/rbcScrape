@@ -1,0 +1,10 @@
+__pycache__
+.vscode
+lib
+include
+bin
+Scripts
+quotes/*.csv
+pyvenv.cfg
+
+quote.html
