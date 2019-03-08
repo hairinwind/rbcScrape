@@ -23,7 +23,7 @@ def run():
 
 	df = pd.DataFrame.from_records(data, columns=labels)
 	now = datetime.now().strftime("%Y-%m-%d")
-	csvFileName = 'rbcFunds_{0}.csv'.format(now)
+	csvFileName = 'result/rbcFunds_{0}.csv'.format(now)
 	df.to_csv(csvFileName, index=False)
 
 
