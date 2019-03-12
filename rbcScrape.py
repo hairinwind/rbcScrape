@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
+from pemail import gmail 
 
 def run(): 
 	url = "http://fundinfo.rbcgam.com/mutual-funds/rbc-funds/prices/default.fs"
@@ -25,6 +26,7 @@ def run():
 	now = datetime.now().strftime("%Y-%m-%d")
 	csvFileName = 'result/rbcFunds_{0}.csv'.format(now)
 	df.to_csv(csvFileName, index=False)
+	gmail.send_email_text('rbcFund','', filename=[csvFileName])
 
 
 if __name__=="__main__":
