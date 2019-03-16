@@ -26,7 +26,8 @@ def run():
 	now = datetime.now().strftime("%Y-%m-%d")
 	csvFileName = 'result/rbcFunds_{0}.csv'.format(now)
 	df.to_csv(csvFileName, index=False)
-	gmail.send('rbcFund','', filename=[csvFileName])
+	print('sending email...', [csvFileName])
+	gmail.send('rbcFund','', files=[csvFileName])
 
 
 if __name__=="__main__":
