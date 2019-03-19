@@ -5,7 +5,7 @@ from datetime import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 from pemail import gmailapi 
 
-def run(): 
+def run():
 	url = "http://fundinfo.rbcgam.com/mutual-funds/rbc-funds/prices/default.fs"
 	response = requests.get(url, verify=False)
 	soup = BeautifulSoup(response.text, 'html5lib')
@@ -27,7 +27,7 @@ def run():
 	csvFileName = 'result/rbcFunds_{0}.csv'.format(now)
 	df.to_csv(csvFileName, index=False)
 	print('sending email...', [csvFileName])
-	gmail.send('rbcFund','', files=[csvFileName])
+	gmailapi.send('rbcFund','', files=[csvFileName])
 
 
 if __name__=="__main__":
