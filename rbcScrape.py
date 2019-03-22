@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import sys
 from datetime import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 from pemail import gmailapi 
@@ -31,7 +32,12 @@ def run():
 
 
 if __name__=="__main__":
-	scheduler = BlockingScheduler()
-	scheduler.add_job(run, 'cron', day_of_week='1-5', hour=23, minute=0)
-	scheduler.start()
+	runItNow = sys.argv[1] if len(sys.argv) >= 1 else None
+	if runItNow and runItNow.upper() == 'NOW':
+		run()
+	else :
+		print('run cron job...')
+		scheduler = BlockingScheduler()
+		scheduler.add_job(run, 'cron', day_of_week='1-5', hour=23, minute=0)
+		scheduler.start()
 	
