@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+beautifulsoup4 = "==4.7.1"
+html5lib = "==1.0.1"
+lxml = "==4.3.2"
+numpy = "==1.15.2"
+pandas = "==0.23.4"
+APScheduler = "==3.5.3"
+google-api-python-client = "*"
+google-auth-httplib2 = "*"
+google-auth-oauthlib = "*"
+pemail = {git = "https://github.com/hairinwind/pemail.git"}
+
+[requires]
+python_version = "3.6"
